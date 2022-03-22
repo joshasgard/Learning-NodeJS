@@ -34,20 +34,26 @@
 // })
 // console.log('starting next task')
 
-const http = require('http');
+// const http = require('http');
 
-const server = http.createServer((req,res)=>{
-    if (req.url === '/'){
-        res.end('Welcome to homepage')
-    }
-    if (req.url === '/about'){
-        res.end('Here is our short history')
-    }
-    res.end(`
-        <h1>Oops!</h1>
-        <p>We can't find the requested page</p>
-        <a href="/">Go back to the homepage</a>
-    `)
-})
+// const server = http.createServer((req,res)=>{
+//     if (req.url === '/'){
+//         res.end('Welcome to homepage')
+//     }
+//     if (req.url === '/about'){
+//         res.end('Here is our short history')
+//     }
+//     res.end(`
+//         <h1>Oops!</h1>
+//         <p>We can't find the requested page</p>
+//         <a href="/">Go back to the homepage</a>
+//     `)
+// })
 
-server.listen(5000)
+// server.listen(5000)
+const _ = require("lodash")
+
+const items = [1,[2,[3,[4,5,6],7],8],9]
+const newitems = _.flattenDeep(items)
+console.log(newitems)
+console.log('hello guys')
