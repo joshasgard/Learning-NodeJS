@@ -51,9 +51,85 @@
 // })
 
 // server.listen(5000)
-const _ = require("lodash")
+// const _ = require("lodash")
 
-const items = [1,[2,[3,[4,5,6],7],8],9]
-const newitems = _.flattenDeep(items)
-console.log(newitems)
-console.log('hello guys')
+// const items = [1,[2,[3,[4,5,6],7],8],9]
+// const newitems = _.flattenDeep(items)
+// console.log(newitems)
+// console.log('hello fam')
+
+// const getText = (path) =>{
+//     return new Promise((resolve,reject)=>{
+//         readFile(path, 'utf-8',(err, data)=>{
+//             if(err){
+//                 reject(err);
+//             }
+//             else{
+//                 resolve(data)
+//             }
+//     })
+// })
+// }
+
+// getText('./content/first.txt')
+//     .then(result=>console.log(result))
+//     .catch((err)=>console.log(err))
+
+// const {readFile, writeFile} = require('fs');
+// const util = require('util');
+
+// const readFilePromise = util.promisify(readFile);
+// const writeFilePromise = util.promisify(writeFile);
+
+// const start = async() =>{
+//     try {
+//         const first = await readFilePromise('./content/first.txt', 'utf-8');
+//         const second = await readFilePromise('./content/second.txt', 'utf-8');
+//         await writeFilePromise(
+//             './content/result-mind.txt', 
+//             `Awesome Awesome: ${first} ${second}`)
+//         console.log(first, second);
+//     } catch (error) {
+//         console.log(error)
+//     }
+   
+// }
+// start()
+
+
+// ==Events====
+
+// const EventEmitter = require('events');
+// const customEmitter = new EventEmitter()
+
+// customEmitter.on('response', (name,id)=>{
+//     console.log(`data received for user:${name} with id:${id}`)
+// })
+// customEmitter.on('response', ()=>{
+//     console.log(`some other logic here`)
+// })
+// customEmitter.emit('response', 'john',34)
+// Many built-in modules extends the Events module in Javaascript
+
+//STREAMS
+//  1. Writeable
+//  2. Readable
+//  3. Duplex
+//  4. Transform
+
+const express = require('express');
+const path = require('path');
+const app = express();
+
+// setup static and middleware
+app.use(express.static('./public'))
+
+app.get('/', (req,res)=>{
+    res.sendFile(path.resolve(__dirname, './facebook-Log/index.html'))
+})
+
+app.listen(5000, ()=>{
+    console.log('Server is listening on Port 5000...')
+})
+
+
